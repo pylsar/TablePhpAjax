@@ -46,6 +46,24 @@ function addUser(){
                 // console.log(status)
             }
         });
+        
     })
 }
 addUser();
+
+function editUser(valueId){
+    $(".editMail").css('visibility', 'hidden');
+    $(".editMail[data-id='" + valueId +"']").css('visibility', 'visible');
+
+}
+
+editUser();
+
+function saveUser(valueId, valueMail , valuePassword){
+    // console.log(valueId , valueMail, valuePassword)
+
+
+    const newMail = $('#editMail').val();
+}
+
+saveUser();

@@ -30,9 +30,9 @@
                <td>'.$id.'</td>
                <td>'.$firstname.'</td>
                <td>'.$lastname.'</td>
-               <td>'.$mail.'</td>
+               <td>'.$mail.' <input type="text" class="editMail" data-id="'.$id.'" style="visibility: hidden;"/></td>
                <td>'.$password.'</td>
-               <td><button>edit</button><button>delete</button></td>
+               <td><button onclick="editUser('.$id.')">edit</button><button onclick="saveUser('.$id.' , \''.$mail.'\', \''.$password.'\')">save</button></td>
             </tr>
          ';
       }
