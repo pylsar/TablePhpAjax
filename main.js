@@ -53,8 +53,10 @@ addUser();
 
 function editUser(valueId){
     $(".editMail").css('visibility', 'hidden');
-    $(".editMail[data-id='" + valueId +"']").css('visibility', 'visible');
+    $(".editPassword").css('visibility', 'hidden');
 
+    $(".editMail[data-id='" + valueId +"']").css('visibility', 'visible');
+    $(".editPassword[data-id='" + valueId +"']").css('visibility', 'visible');
 }
 
 editUser();
@@ -63,7 +65,29 @@ function saveUser(valueId, valueMail , valuePassword){
     // console.log(valueId , valueMail, valuePassword)
 
 
-    const newMail = $('#editMail').val();
+    let newMail = $(".editMail[data-id='" + valueId +"']").val();;
+    let newPassword = $(".editPassword[data-id='" + valueId +"']").val();
+
+    if(newMail =='' || newPassword =='' ) {
+        alert("Please fill all fields.");
+        return false;
+    }
+    
+
+    // console.log(newMail, newPassword)
+
+    $.ajax({
+        url: 'edit.php',
+        type: 'POST',
+        data: {
+            mail: newMail,
+            password: newPassword
+        },
+        success: function(data, status){
+            // console.log(data)
+            // console.log(status)
+        }
+    });
 }
 
 saveUser();
