@@ -46,7 +46,6 @@ function addUser(){
                 // console.log(status)
             }
         });
-        
     })
 }
 addUser();
@@ -65,7 +64,8 @@ function saveUser(valueId, valueMail , valuePassword){
     // console.log(valueId , valueMail, valuePassword)
 
 
-    let newMail = $(".editMail[data-id='" + valueId +"']").val();;
+    let id = valueId;
+    let newMail = $(".editMail[data-id='" + valueId +"']").val();
     let newPassword = $(".editPassword[data-id='" + valueId +"']").val();
 
     if(newMail =='' || newPassword =='' ) {
@@ -80,11 +80,12 @@ function saveUser(valueId, valueMail , valuePassword){
         url: 'edit.php',
         type: 'POST',
         data: {
+            id: id,
             mail: newMail,
             password: newPassword
         },
         success: function(data, status){
-            // console.log(data)
+            console.log(data)
             // console.log(status)
         }
     });
